@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+
+{% block content %}
+    <h1>Home Page</h1>
+    <br>
+    <hr>
+    <p><em><strong>{{user['username']}}</strong>, {{user['password']}}, {{user['email']}}</em></p>
+{% endblock content %}
+    
+    
