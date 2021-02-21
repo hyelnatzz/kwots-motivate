@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Home
+{% endblock title %}
+    
+
+{% block content %}
+<div  class= "main-bg">
+    {% include "nav.html" %}
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-12 caption-box">
+                    <h1 style="font-family: 'Alegreya Sans', sans-serif;color: #a500a0;font-size: 109px;padding-bottom: 0px;">kwots</h1>
+                    <h1 style="font-size: 49px;color: #a500a0;margin-top: -40px;font-weight: 400;margin-left: 38px;">EVERYDAY</h1>
+                    <p style="color: #a500a0;font-size: 20px;margin-top: -21px;padding-left: 50px;">inspiration for life...</p>
+                    <div class="col-sm-12"><button class="btn btn-primary d-sm-block flex-sm-grow-1 shadow-btn white-btn" type="button">Login</button></div>
+                    <div class="col-sm-12"><button class="btn btn-primary shadow-btn purple-btn" type="button">Register</button></div>
+                </div>
+                <div class="col-md-4 d-sm-none"></div>
+                <div class="col-md-4 d-sm-none"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-basic text-white">
+        <footer>
+            <div class="social"><a href="#"><i class="icon ion-social-instagram purple-hover"></i></a><a href="#"><i class="icon ion-social-snapchat purple-hover"></i></a><a href="#"><i class="icon ion-social-twitter purple-hover"></i></a><a href="#"><i class="icon ion-social-facebook purple-hover"></i></a></div>
+            <ul
+                class="list-inline purple-hover">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <p class="copyright">kwots© 2021</p>
+        </footer>
+    </div>
+</div>
+{% endblock content %}
+    

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Add quote
+{% endblock title %}
+    
+
+{% block content %}
+<div  class= "addquote-bg">
+    {% include "nav.html" %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 addquote-column">
+                    <h1 class="mb-2" style="color: rgb(165,0,160);font-size: 27px;">Add quote</h1>
+                    <form>
+                        <div class="form-group has-success has-feedback"><input class="form-control form-field shadow-btn" type="text" placeholder="Author" required=""></div>
+                        <div class="form-group has-success has-feedback"><textarea class="form-control textarea-field shadow-btn" placeholder="Quote" rows="4"></textarea></div>
+                        <div class="form-group has-success has-feedback"><textarea class="form-control textarea-field shadow-btn" placeholder="Note" rows="4"></textarea></div>
+                        <div class="form-group has-success has-feedback"><select class="form-control form-field shadow-btn"><option value="12" selected="">Select a category</option><option value="13">Business</option><option value="14">Relationship</option><option value="">Technology</option><option value="">Family</option></select></div>
+                        <div
+                            class="form-group" style="padding-left: 33%;"><button class="btn btn-primary btn-lg border rounded-circle shadow-btn round-btn white-bg" type="button"><i class="fa fa-plus"></i></button><button class="btn btn-primary btn-lg border rounded-circle shadow-btn round-btn white-bg ml-4"
+                                type="button"><i class="fa fa-close"></i></button></div>
+                </form>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <div class="footer-basic">
+        <footer>
+            <div class="social"><a href="#"><i class="icon ion-social-instagram purple-hover"></i></a><a href="#"><i class="icon ion-social-snapchat purple-hover"></i></a><a href="#"><i class="icon ion-social-twitter purple-hover"></i></a><a href="#"><i class="icon ion-social-facebook purple-hover"></i></a></div>
+            <ul
+                class="list-inline">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <p class="copyright">kwots© 2021</p>
+        </footer>
+    </div>
+</div>
+{% endblock %}

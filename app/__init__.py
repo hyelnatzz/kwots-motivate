@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import query
 
 db = SQLAlchemy()
 
@@ -20,4 +21,19 @@ def create_app(config):
     app.register_blueprint(quote_bp)
     app.register_blueprint(main_bp)
 
-    return app
+    from .models import Color, Category, Quote, User
+    
+    def add_initial_data():
+        color = Color()
+        color.name = '#F723FB'
+        color.save()
+        category = Category()
+        category.name = 'General'
+        category.color = color
+        category.save()
+
+    with app.app_context():
+        db.create_all()
+        if not Category.query.all():
+            add_initial_data()
+        return app

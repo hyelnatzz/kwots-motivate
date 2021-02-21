@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock title %}
+    
+
+{% block content %}
+<div  class= "dash-bg">
+    {% include "nav.html" %}
+        <div class="container">
+            <div class="row">
+                <div class="col col-md-3 box d-none d-md-inline-block"></div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col col-12 col-md-5">
+                            <p style="font-size: 15px;color: rgb(165,0,160);">hi User, It's a great morning...</p>
+                        </div>
+                        <div class="col">
+                            <p style="font-size: 20px;color: rgba(249,26,255,0.78);">Ready to get inspired?</p>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col"><a class="btn btn-primary btn-sm border rounded-circle shadow-btn round-btn white-bg mr-2" role="button" style="width: 30px;" href="add-quote.html"><i class="fa fa-plus" style="height: 11px;"></i></a><span class="purple-text">Quote</span></div>
+                        <div
+                            class="col"><a class="btn btn-primary btn-sm border rounded-circle shadow-btn round-btn white-bg mr-2" role="button" style="width: 30px;" href="add-category.html"><i class="fa fa-plus" style="height: 11px;"></i></a><span class="purple-text">Category</span></div>
+                </div>
+                <div class="row quote-block p-3 pl-1">
+                    <div class="col p-0 col-12 col-md-5 col-lg-4">
+                        <div class="quote-block-one" style="color: #43b7ff; border: 1px solid rgba(26,177,255,.7) !important;box-shadow: 1px 1px 4px rgba(26,177,255,.7);">
+                            <p class="text-center" style="font-size: 10px;"><em>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</em></p>
+                            <p class="text-right quote-author-name" style="font-size: 12px;">--<strong><em>H. Macy</em></strong></p>
+                        </div>
+                    </div>
+                    <div class="col p-0 col-12 col-md-5 col-lg-4">
+                        <div class="blue-border quote-block-one blue-text">
+                            <p class="text-center" style="font-size: 10px;"><em>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</em></p>
+                        </div>
+                    </div>
+                    <div class="col p-0 col-12 col-md-5 col-lg-4">
+                        <div class="blue-border quote-block-one blue-text">
+                            <p class="text-center" style="font-size: 10px;"><em>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</em></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row quote-block p-3">
+                    <div class="col pl-0 pr-0">
+                        <div role="tablist" id="accordion-1" class="border-none">
+                            <div class="card">
+                                <div class="card-header blue-category-header border-none" role="tab" style="background-color: rgba(26,177,255,.1); color: rgba(26,177,255,1); padding-top: 0; padding-bottom: 5px;">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .item-1" href="#accordion-1 .item-1" class="category-title mr-5" style="color: #007bff;">Accordion Item</a><span><button class="btn btn-primary btn-sm border rounded-circle shadow-sm mt-1 mr-2" data-toggle="tooltip" data-bs-tooltip="" type="button" style="background-color: rgba(255,255,255,.3);color: rgb(0,123,255);width: auto;height: auto;border-color:rgba(0,123,255,.4) !important;" title="Add quote"><i class="fa fa-plus" style="height: 11px;"></i></button><button class="btn btn-primary btn-sm border rounded-circle shadow-sm mt-1 mr-2" data-toggle="tooltip" data-bs-tooltip="" type="button" style="background-color: rgba(255,255,255,.3);color: rgb(0,123,255);width: auto;height: auto;border-color:rgba(0,123,255,.4) !important;" title="Edit category"><i class="fa fa-pencil" style="height: 11px;"></i></button><button class="btn btn-primary btn-sm border rounded-circle shadow-sm mt-1" data-toggle="tooltip" data-bs-tooltip="" type="button" style="background-color: rgba(255,255,255,.3);color: rgb(0,123,255);width: auto;height: auto;border-color:rgba(0,123,255,.4) !important;" title="Delete category"><i class="far fa-trash-alt shadow-sm" style="height: 11px;"></i></button></span></h5>
+                                </div>
+                                <div class="collapse show item-1 border-none" role="tabpanel" data-parent="#accordion-1">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col p-0 col-12 col-md-5 col-lg-4">
+                                                <div class="quote-block-one" style="color: #43b7ff; border: 1px solid rgba(26,177,255,.7) !important;box-shadow: 1px 1px 4px rgba(26,177,255,.7);">
+                                                    <p class="text-center" style="font-size: 10px;"><em>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</em></p>
+                                                    <p class="text-right quote-author-name"
+                                                        style="font-size: 12px;">--<strong><em>H. Macy</em></strong></p>
+                                                    <p class="quote-author-name"><span class="mr-1"><button class="btn btn-primary btn-sm blue-border-btn blue-round-btn blue-white-bg btn-icon mr-0" data-toggle="tooltip" data-bs-tooltip="" type="button" style="color: rgba(26,177,255,.7);border: 1px solid rgba(26,177,255,.7) !important;" title="Pin to board"><i class="fa fa-star btn-icon" style="font-size: 12px;"></i></button></span>
+                                                        <span
+                                                            class="mr-1"><button class="btn btn-primary btn-sm blue-border-btn blue-round-btn blue-white-bg mr-1" data-toggle="tooltip" data-bs-tooltip="" type="button" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;color: rgba(26,177,255,.7);border: 1px solid rgba(26,177,255,.7) !important;"
+                                                                title="Edit quote"><i class="fa fa-pencil" style="font-size: 12px;"></i></button></span><span><button class="btn btn-primary btn-sm blue-border-btn blue-round-btn blue-white-bg" data-toggle="tooltip" data-bs-tooltip="" type="button" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;color: rgba(26,177,255,.7); border: 1px solid rgba(26,177,255,.7) !important;" title="Delete quote"><i class="fa fa-trash-o" style="font-size: 12px;"></i></button></span></p>
+                                                </div>
+                                            </div>
+                                            <div class="col p-0 col-12 col-md-5 col-lg-4">
+                                                <div class="blue-border quote-block-one blue-text">
+                                                    <p class="text-center" style="font-size: 10px;"><em>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</em></p>
+                                                </div>
+                                            </div>
+                                            <div class="col p-0 col-12 col-md-5 col-lg-4">
+                                                <div class="blue-border quote-block-one blue-text">
+                                                    <p class="text-center" style="font-size: 10px;"><em>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</em></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-none d-md-inline-block col-md-3"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+    </div>
+    <div class="footer-basic">
+        <footer>
+            <div class="social"><a href="#"><i class="icon ion-social-instagram purple-hover"></i></a><a href="#"><i class="icon ion-social-snapchat purple-hover"></i></a><a href="#"><i class="icon ion-social-twitter purple-hover"></i></a><a href="#"><i class="icon ion-social-facebook purple-hover"></i></a></div>
+            <ul
+                class="list-inline">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <p class="copyright">kwots© 2021</p>
+        </footer>
+    </div>
+</div>
+{% endblock %}

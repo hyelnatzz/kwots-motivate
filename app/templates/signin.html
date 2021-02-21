@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<div class="signin-bg">
+    {% include "nav.html" %}
+    <div style="margin-bottom: 10%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 register-column">
+                    <h1 class="mb-2" style="color: rgb(165,0,160);font-size: 27px;">Signin to kwots</h1>
+                    <form>
+                        <div class="form-group has-success has-feedback"><input class="form-control form-field shadow-btn" type="text" placeholder="Username/Email" required=""></div>
+                        <div class="form-group has-success has-feedback"><input class="form-control form-field shadow-btn" type="text" placeholder="Password" required=""></div>
+                        <div class="form-group"><button class="btn btn-primary shadow-btn purple-btn register-btn" type="button">Login</button></div>
+                    </form>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-basic">
+        <footer>
+            <div class="social"><a href="#"><i class="icon ion-social-instagram purple-hover"></i></a><a href="#"><i class="icon ion-social-snapchat purple-hover"></i></a><a href="#"><i class="icon ion-social-twitter purple-hover"></i></a><a href="#"><i class="icon ion-social-facebook purple-hover"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <p class="copyright">kwots© 2021</p>
+        </footer>
+    </div>
+</div>
+{% endblock %}
+
