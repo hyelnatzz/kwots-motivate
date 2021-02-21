@@ -1,0 +1,240 @@
+.shadow-btn:hover {
+  box-shadow: 0.5px 0.5px 10px #A500A0;
+}
+
+.caption-box {
+  padding-top: 7%;
+}
+
+.main-bg {
+  background-image: url(../img/background.svg);
+  background-repeat: no-repeat;
+  background-position: top right;
+  height: 768px;
+}
+
+
+.menu-link:hover {
+  background-color: rgba(165,0,160,.1);
+}
+
+@media (min-width: 576px) {
+  .full-width {
+    width: 100%;
+  }
+}
+
+
+.white-btn, .white-btn:active, .white-btn:focus, .white-btn:not(:disabled):not(.disabled):active:focus, .white-btn:not(:disabled):not(.disabled):active:focus {
+  width: 210px;
+  height: 50px;
+  border-radius: 200px;
+  background-color: white;
+  color: #A500A0;
+  border-color: #A500A0;
+  margin-bottom: 20px;
+}
+
+.white-btn:hover {
+  background-color: white;
+  color: rgb(165,0,160);
+  border-color: rgb(165,0,160);
+}
+
+.purple-btn, .purple-btn:active, .purple-btn:focus, .purple-btn:not(:disabled):not(.disabled):active:focus {
+  width: 210px;
+  height: 50px;
+  border-radius: 200px;
+  background-color: #A500A0;
+  color: white;
+  border-color: #A500A0;
+  margin-bottom: 15px;
+}
+
+.purple-btn:hover {
+  border-color: rgb(165,0,160);
+  background-color: rgb(165,0,160);
+}
+
+@media (min-width: 576px) {
+  .white-btn, .purple-btn {
+    width: 210px !important;
+  }
+}
+
+.signup-bg {
+  background-image: url(../img/signup-bg.svg);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: cover;
+  height: 768px;
+}
+
+.form-field {
+  height: 50px;
+  border-radius: 100px;
+  color: rgb(165,0,160);
+  border-color: rgba(165,0,160,0.4);
+}
+
+.form-field:focus {
+  outline: none;
+  border-color: rgb(165,0,160);
+  box-shadow: 0 0 10px rgba(165,0,160,.4);
+}
+
+.white-btn:focus {
+  outline: none;
+  border-color: rgb(165,0,160);
+  box-shadow: 0 0 10px rgba(165,0,160,1);
+}
+
+.white-btn:active {
+  outline: none;
+  border-color: rgb(165,0,160);
+  box-shadow: 0 0 5px rgba(165,0,160,1);
+}
+
+.purple-btn:active, .purple-btn:focus {
+  outline: none;
+  border-color: rgb(165,0,160);
+  box-shadow: 0 0 10px rgba(165,0,160,1);
+}
+
+register-btn {
+  width: 100% !important;
+}
+
+.register-btn {
+  width: 100% !important;
+}
+
+.register-column {
+  padding-top: 8%;
+}
+
+.signin-bg {
+  background-image: url(../img/signin-bg.svg);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: cover;
+  height: 768px;
+}
+
+.purple-hover:hover {
+  color: rgba(165,0,160,.7);
+}
+
+.textarea-field {
+  height: 50px;
+  border-radius: 20px;
+  color: rgb(165,0,160);
+  border-color: rgba(165,0,160,0.4);
+}
+
+.textarea-field:focus {
+  outline: none;
+  border-color: rgb(165,0,160);
+  box-shadow: 0 0 10px rgba(165,0,160,.4);
+}
+
+.round-btn {
+  border-radius: 100%;
+}
+
+.white-bg {
+  background-color: white;
+  color: rgb(165,0,160);
+  border-color: rgba(165,0,160,.4) !important;
+}
+
+.white-bg:hover {
+  background-color: rgb(165,0,160);
+  color: white;
+}
+
+.addcategory-bg {
+  background-image: url(../img/category-bg.svg);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  height: 768px;
+}
+
+.addquote-column {
+  padding-top: 4%;
+}
+
+.addquote-bg {
+  background-image: url(../img/addquote-bg.svg);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  height: 768px;
+}
+
+.blue-text {
+  color: #43b7ff;
+}
+
+.blue-border {
+  border: 1px solid rgba(26,177,255,.7) !important;
+  box-shadow: 1px 1px 4px rgba(26,177,255,.7);
+}
+
+.blue-border:hover {
+  box-shadow: 0 4px 16px rgba(26,177,255,.7);
+}
+
+.blue-white-bg {
+  background-color: white;
+}
+
+.blue-white-bg:hover {
+  box-shadow: 1px 1px 10px rgba(26,177,255,.7);
+  background-color: white;
+  color: rgba(26,177,255,.7);
+}
+
+.blue-border-btn:hover {
+  box-shadow: 1px 1px 4px rgba(26,177,255,.7);
+}
+
+.quote-author-name {
+  margin-top: -15px;
+}
+
+.blue-round-btn {
+  height: 25px;
+  width: 25px;
+  border-radius: 100px;
+}
+
+.btn-icon {
+  padding: 0;
+}
+
+.one-third-column {
+  width: 30%;
+}
+
+.dash-bg {
+  background-image: url(../img/dash-bg.svg);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: cover;
+  height: 100%;
+}
+
+.category-title {
+  font-size: 14px;
+}
+
+.border-none {
+  border: none !important;
+}
+
+.purple-text {
+  color: rgba(165,0,160,.7);
+}
+

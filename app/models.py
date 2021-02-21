@@ -10,6 +10,7 @@ class User(db.Model):
     email = db.Column(db.String, unique = True, nullable = False)
     password = db.Column(db.String, nullable = False)
     quotes = db.relationship('Quote', backref = 'user')
+    categories = db.relationship('Category', backref = 'user')
 
     def set_password(self, password):
         self.password = generate_password_hash(password, method='sha256')
@@ -59,12 +60,18 @@ class Category(db.Model):
     color_id = db.Column(db.Integer, db.ForeignKey('colors.id'))
     quotes = db.relationship('Quote', backref = 'category')
     icon = db.Column(db.String)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def save(self):
         db.session.add(self)
         db.session.commit()
 
     def delete(self):
+        general_category = db.session.query(Category).filter_by(name = "General").first()
+        quotes = self.quotes
+        for i in quotes:
+            i.category = general_category
+        self.color.delete()
         db.session.delete(self)
 
     def __repr__(self) -> str:

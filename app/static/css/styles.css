@@ -1,0 +1,23 @@
+.box {
+  height: 100%;
+  width: 100%;
+  background-color: grey;
+  border: 1px solid white;
+}
+
+.quote-block {
+  border: 1px solid rgba(211,15,225,.13);
+  border-radius: 20px;
+}
+
+.quote-block-one {
+  padding-top: 15px;
+  padding-right: 12px;
+  padding-left: 13px;
+  border-radius: 14px;
+}
+
+.purple-border {
+  border: 1px solid rgba(;
+}
+
