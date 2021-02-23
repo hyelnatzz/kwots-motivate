@@ -1,9 +1,10 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+from flask_login import UserMixin
 
 from . import db
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String, unique = True, nullable = False)
@@ -61,6 +62,7 @@ class Category(db.Model):
     quotes = db.relationship('Quote', backref = 'category')
     icon = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    description = db.Column(db.String, nullable = True)
 
     def save(self):
         db.session.add(self)

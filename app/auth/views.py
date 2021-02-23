@@ -1,25 +1,49 @@
-from flask import  render_template
+from flask import  render_template, jsonify, redirect, flash
+from flask.helpers import url_for
+from flask_login import login_user, logout_user, current_user
+from flask_login.utils import login_required
 from . import auth_bp
 from .. import db
 from ..models import User
+from ..forms import RegisterForm, LoginForm
 
 
-u = {'username':'hyelnatz', 'password':'password', 'email':'hndzarma@gmail.com'}
-
-@auth_bp.route('/login')
+@auth_bp.route('/login', methods=['POST', 'GET'])
 def login():
-    return render_template('signin.html')
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email = form.username.data.strip()).first() or \
+            User.query.filter_by(username = form.username.data.strip()).first() or None
+        if user:
+            if user.check_password(form.password.data.strip()):
+                login_user(user, remember=form.remember_me)
+                return redirect(url_for('user_bp.dashboard'))
+            else: 
+                flash("Username or password is incorrect")
+                return redirect(url_for('auth_bp.login'))
+        else:
+            flash("Username or password is incorrect")
+            return redirect(url_for('auth_bp.login'))
+    return render_template('signin.html', form = form)
 
-@auth_bp.route('/register')
+
+@auth_bp.route('/register', methods=['POST', 'GET'])
 def register():
-    """user = User()
-    user.username = u['username']
-    user.email = u['email']
-    user.set_password(u['password'])
-    db.session.add(user)
-    db.session.commit()"""
-    return render_template('register.html')
+    form = RegisterForm()
+    if form.validate_on_submit():
+        #return jsonify({'message':'success', 'username':form.username.data, 'email':form.email.data, 'password':form.password.data})
+        user = User()
+        user.username = form.username.data.strip()
+        user.email = form.email.data.strip()
+        user.set_password(form.password.data.strip())
+        user.save()
+        return redirect(url_for('user_bp.login'))
+    return render_template('register.html', form = form)
+
 
 @auth_bp.route('/logout')
+@login_required
 def logout():
-    return 'logout Page'
+    logout_user()
+    flash('Logged out')
+    return redirect(url_for('auth_bp.login'))

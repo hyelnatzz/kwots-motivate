@@ -9,14 +9,24 @@ Login
     {% include "nav.html" %}
     <div style="margin-bottom: 10%;">
         <div class="container">
+            
+            {% if get_flashed_messages() %}
+                {% for message in get_flashed_messages() %}
+                  <div class="alert alert-danger" role="alert">
+                      {{ message }}
+                  </div></p>
+                {% endfor %}
+            {% endif %}
+                
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4 register-column">
                     <h1 class="mb-2" style="color: rgb(165,0,160);font-size: 27px;">Signin to kwots</h1>
-                    <form>
-                        <div class="form-group has-success has-feedback"><input class="form-control form-field shadow-btn" type="text" placeholder="Username/Email" required=""></div>
-                        <div class="form-group has-success has-feedback"><input class="form-control form-field shadow-btn" type="text" placeholder="Password" required=""></div>
-                        <div class="form-group"><button class="btn btn-primary shadow-btn purple-btn register-btn" type="button">Login</button></div>
+                    <form action="{{ url_for('auth_bp.login')}}" method="POST">
+                        {{ form.hidden_tag() }}
+                        <div class="form-group has-success has-feedback">{{ form.username(class="form-control form-field shadow-btn", placeholder="Username/Email") }}</div>
+                        <div class="form-group has-success has-feedback">{{ form.password(class="form-control form-field shadow-btn", placeholder="Password") }}</div>
+                        <div class="form-group">{{ form.login(class="btn btn-primary shadow-btn purple-btn register-btn") }}</div>
                     </form>
                 </div>
                 <div class="col"></div>
