@@ -33,3 +33,5 @@ class QuoteForm(FlaskForm):
     note = TextAreaField('')
     category = SelectField('', choices=['select a category'] )
     add_quote = SubmitField('')
+
+

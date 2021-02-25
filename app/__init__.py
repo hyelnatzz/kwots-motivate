@@ -26,14 +26,6 @@ def create_app(config):
 
     from .models import Color, Category, Quote, User
     
-    def add_initial_data():
-        color = Color()
-        color.name = '#F723FB'
-        color.save()
-        category = Category()
-        category.name = 'General'
-        category.color = color
-        category.save()
     
 
     @login_manager.user_loader
@@ -43,7 +35,5 @@ def create_app(config):
 
     with app.app_context():
         db.create_all()
-        if not Category.query.all():
-            add_initial_data()
         return app
 

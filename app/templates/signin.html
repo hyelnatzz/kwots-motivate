@@ -12,9 +12,13 @@ Login
             
             {% if get_flashed_messages() %}
                 {% for message in get_flashed_messages() %}
-                  <div class="alert alert-danger" role="alert">
-                      {{ message }}
-                  </div></p>
+                      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                              <span class="sr-only">Close</span>
+                          </button>
+                         {{ message }}
+                      </div>
                 {% endfor %}
             {% endif %}
                 
@@ -26,6 +30,7 @@ Login
                         {{ form.hidden_tag() }}
                         <div class="form-group has-success has-feedback">{{ form.username(class="form-control form-field shadow-btn", placeholder="Username/Email") }}</div>
                         <div class="form-group has-success has-feedback">{{ form.password(class="form-control form-field shadow-btn", placeholder="Password") }}</div>
+                        <div class="form-group has-success has-feedback ml-5"> {{ form.remember_me(class = "form-check-input") }} <span class="form-check-label"> {{ form.remember_me.label }} </span></div>
                         <div class="form-group">{{ form.login(class="btn btn-primary shadow-btn purple-btn register-btn") }}</div>
                     </form>
                 </div>

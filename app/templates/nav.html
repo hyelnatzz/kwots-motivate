@@ -4,13 +4,17 @@
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item menu-link" role="presentation"><a class="nav-link active" href="#" style="color: #a500a0;font-size: 12px;font-family: Arya, sans-serif;" target="_blank">HOME</a></li>
-                    <li class="nav-item menu-link" role="presentation"><a class="nav-link active" href="signin.html" style="color: #a500a0;font-size: 12px;font-family: Arya, sans-serif;" target="_blank">LOGIN</a></li>
-                    <li class="nav-item menu-link" role="presentation"><a class="nav-link active" href="register.html" style="color: #a500a0;font-size: 12px;font-family: Arya, sans-serif;" target="_blank">DASHBOARD</a></li>
-                    <li class="nav-item menu-link" role="presentation"><a class="nav-link" href="#" style="color: #a500a0;font-size: 12px;font-family: Arya, sans-serif;">REGISTER</a></li>
-                    <li class="nav-item menu-link" role="presentation"><a class="nav-link" href="#" style="color: #a500a0;font-size: 12px;font-family: Arya, sans-serif;">HELP</a></li>
-                    <li class="nav-item menu-link" role="presentation"><a class="nav-link active" href="dashboard.html" style="color: #a500a0;font-size: 12px;font-family: Arya, sans-serif;" target="_blank">ABOUT</a></li>
-                    <li class="nav-item menu-link" role="presentation"><a class="nav-link active" href="dashboard.html" style="color: #a500a0;font-size: 12px;font-family: Arya, sans-serif;" target="_blank">SIGN OUT</a></li>
+                    
+                    {% if current_user.is_anonymous %}
+                        <li class="nav-item menu-link" role="presentation"><a class="nav-link" href="{{ url_for('main_bp.index')}}" style="color: #a500a0;font-size: 12px;font-family: Arya, sans-serif;">HOME</a></li>
+                        <li class="nav-item menu-link" role="presentation"><a class="nav-link" href="{{ url_for('auth_bp.login') }}" style="color: #a500a0;font-size: 12px;font-family: Arya, sans-serif;">LOGIN</a></li>
+                        <li class="nav-item menu-link" role="presentation"><a class="nav-link" href="{{ url_for('auth_bp.register') }}" style="color: #a500a0;font-size: 12px;font-family: Arya, sans-serif;">REGISTER</a></li>
+                        <li class="nav-item menu-link" role="presentation"><a class="nav-link" href="dashboard.html" style="color: #a500a0;font-size: 12px;font-family: Arya, sans-serif;">ABOUT</a></li>
+                    {% else %}
+                        <li class="nav-item menu-link" role="presentation"><a class="nav-link" href="{{ url_for('user_bp.dashboard') }}" style="color: #a500a0;font-size: 12px;font-family: Arya, sans-serif;">DASHBOARD</a></li>
+                        <li class="nav-item menu-link" role="presentation"><a class="nav-link" href="#" style="color: #a500a0;font-size: 12px;font-family: Arya, sans-serif;">HELP</a></li>
+                        <li class="nav-item menu-link" role="presentation"><a class="nav-link" href="{{ url_for('auth_bp.logout') }}" style="color: #a500a0;font-size: 12px;font-family: Arya, sans-serif;">SIGN OUT</a></li>
+                    {% endif %}
                 </ul>
         </div>
         </div>

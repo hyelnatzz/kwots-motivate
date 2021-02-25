@@ -4,9 +4,19 @@ from flask_login import login_user, logout_user, current_user
 from flask_login.utils import login_required
 from . import auth_bp
 from .. import db
-from ..models import User
+from ..models import User, Color, Category
 from ..forms import RegisterForm, LoginForm
 
+
+def add_initial_data(user):
+    color = Color()
+    color.name = '#F723FB'
+    color.save()
+    category = Category()
+    category.name = 'General'
+    category.color = color
+    category.user = user
+    category.save()
 
 @auth_bp.route('/login', methods=['POST', 'GET'])
 def login():
@@ -37,7 +47,8 @@ def register():
         user.email = form.email.data.strip()
         user.set_password(form.password.data.strip())
         user.save()
-        return redirect(url_for('user_bp.login'))
+        add_initial_data(user)
+        return redirect(url_for('auth_bp.login'))
     return render_template('register.html', form = form)
 
 

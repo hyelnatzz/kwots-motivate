@@ -13,14 +13,15 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-4 addquote-column">
                     <h1 class="mb-2" style="color: rgb(165,0,160);font-size: 27px;">Edit quote</h1>
-                    <form method="POST" action="{{ url_for('quote_bp.edit_quote') }}">
+                    <form method="POST" action="{{ url_for('quote_bp.edit_quote', quote_id = quote.id) }}">
+                        {{ form.hidden_tag()}}
                         <div class="form-group has-success has-feedback">{{ form.author(class="form-control form-field shadow-btn", placeholder = "Author") }}</div>
-                        <div class="form-group has-success has-feedback"><textarea class="form-control textarea-field shadow-btn" placeholder="Quote" rows="4" name="quote"></textarea></div>
-                        <div class="form-group has-success has-feedback"><textarea class="form-control textarea-field shadow-btn" placeholder="Note" rows="4" name="note"></textarea></div>
+                        <div class="form-group has-success has-feedback"><textarea class="form-control textarea-field shadow-btn" placeholder="Quote" rows="4" name="quote">{{ quote.quote }}</textarea></div>
+                        <div class="form-group has-success has-feedback"><textarea class="form-control textarea-field shadow-btn" placeholder="Note" rows="4" name="note">{{ quote.note }}</textarea></div>
                         <div class="form-group has-success has-feedback">{{ form.category(class="form-control form-field shadow-btn") }}</div>
-                        <div
-                            class="form-group" style="padding-left: 33%;"><button class="btn btn-primary btn-lg border rounded-circle shadow-btn round-btn white-bg" type="submit"><i class="fa fa-pencil"></i></button><button class="btn btn-primary btn-lg border rounded-circle shadow-btn round-btn white-bg ml-4"
-                                type="button"><i class="fa fa-close"></i></button></div>
+                        <div class="form-group" style="padding-left: 33%;">
+                            <button class="btn btn-primary btn-lg border rounded-circle shadow-btn round-btn white-bg" type="submit"><i class="fa fa-pencil"></i></button>
+                            <a href="{{ url_for('user_bp.dashboard')}}" class="btn btn-primary btn-lg border rounded-circle shadow-btn round-btn white-bg ml-4"><i class="fa fa-close"></i></a></div>
                 </form>
             </div>
             <div class="col"></div>
