@@ -1,6 +1,5 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SelectField, TextAreaField, SubmitField, BooleanField
-from wtforms.fields.html5 import EmailField
 from wtforms.validators import InputRequired, EqualTo, Length
 
 
@@ -21,7 +20,7 @@ class AddCategoryForm(FlaskForm):
 
 class RegisterForm(FlaskForm):
     username = StringField('', validators=[InputRequired(message='username is required')])
-    email = EmailField('', validators=[InputRequired(message='email field cannot be empty')])
+    email = StringField('', validators=[InputRequired(message='email field cannot be empty')])
     password = PasswordField('', validators=[InputRequired(message='password is required'), Length(min=8, message='password cannot be less than 8 characters long')])
     confirm_password = PasswordField('', validators=[EqualTo('password', message='password does not match')])
     register = SubmitField('Register')
