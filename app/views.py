@@ -6,5 +6,4 @@ main_bp = Blueprint('main_bp', __name__)
 
 @main_bp.route('/')
 def index():
-    print(current_app.url_map)
     return render_template('index.html')

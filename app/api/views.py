@@ -10,8 +10,7 @@ class QuoteApi(Resource):
     def get(self, quote_id):
         quote = Quote.query.filter_by(id = quote_id).first()
         if quote == None:
-            return {'message':'quote note found'}
-        print(quote)
+            return {'message':'quote not found'}
         return {'message':'success', 
                 'author': quote.author, 
                 'quote':quote.quote, 

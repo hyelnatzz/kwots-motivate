@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import query
 from flask_login import LoginManager
 from flask_restful import Api
 

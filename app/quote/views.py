@@ -129,7 +129,6 @@ def edit_category(category_id):
         category.name = form.name.data.strip()
         category.description = form.description.data.strip()
         category.save()
-        print(category.id)
         db.session.commit()
         flash('Category edited')
         return redirect(url_for('user_bp.dashboard'))
