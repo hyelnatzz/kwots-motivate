@@ -9,8 +9,8 @@ from . import quote_bp
 @login_required
 def add_quote():
     form = QuoteForm()
+
     if request.method == 'POST':
-        print('post')
         category = Category.query.filter_by(name = form.category.data, user_id = current_user.id).first()
         quote = Quote()
         quote.author = form.author.data.strip()
@@ -20,8 +20,9 @@ def add_quote():
         quote.quote = form.quote.data.strip()
         quote.save()
         flash('Quote Added')
+
         return redirect(url_for('user_bp.dashboard'))
-    print('this place')
+
     form.category.choices.extend([(i.name) for i in Category.query.filter_by(user_id = current_user.id).all()])
     return render_template('add-quote.html', form = form)
 
@@ -31,6 +32,7 @@ def add_quote():
 def add_quote_to_category(category_id):
     form = QuoteForm()
     category = Category.query.filter_by(id=category_id).first()
+
     if request.method == 'POST':
         quote = Quote()
         quote.author = form.author.data.strip()
@@ -41,6 +43,7 @@ def add_quote_to_category(category_id):
         quote.save()
         flash('Quote Added')
         return redirect(url_for('user_bp.dashboard'))
+
     form.category.choices = [ Category.query.filter_by(id = category_id).first().name ]
     return render_template('add-quote-cat.html', form=form, category = category)
 
@@ -50,24 +53,26 @@ def add_quote_to_category(category_id):
 def edit_quote(quote_id):
     quote = Quote.query.filter_by(id = quote_id).first()
     form = QuoteForm()
+
     if request.method == "POST":
         quote = Quote.query.filter_by(id=quote_id).first()
-        print(quote)
         quote.quote = form.quote.data.strip()
         quote.author = form.author.data.strip()
+
         if form.category.data == "select a category":
-            quote.category = Category.query.filter_by(name = "General", user_id = current_user.id).first()
+            quote.category = Category.query.filter_by(name="General", user_id=current_user.id).first()
         else:
-            quote.category = Category.query.filter_by(name = form.category.data, user_id = current_user.id).first()
+            quote.category = Category.query.filter_by(name=form.category.data, user_id=current_user.id).first()
+
         quote.note = form.note.data.strip()
         db.session.commit()
-        print(quote.author)
-        print(form.author.data.strip())
+
         flash('Quote edited')
         return redirect(url_for('user_bp.dashboard'))
+
     form.category.choices.extend([(i.name) for i in Category.query.filter_by(user_id = current_user.id).all()])
     form.author.data = quote.author
-    return render_template('edit-quote.html', form = form, quote = quote)
+    return render_template('edit-quote.html', form=form, quote=quote)
 
 
 @quote_bp.route('/delete/<int:quote_id>/')
@@ -101,6 +106,7 @@ def remove_favorite(quote_id):
 @login_required
 def add_category():
     form = AddCategoryForm()
+
     if form.validate_on_submit():
         color = Color()
         color.name = form.color.data
@@ -113,6 +119,7 @@ def add_category():
         category.save()
         flash('Quote deleted successfully')
         return redirect(url_for('user_bp.dashboard'))
+
     return render_template('add-category.html', form = form)
 
 
@@ -122,6 +129,7 @@ def edit_category(category_id):
     category = Category.query.filter_by(id = category_id).first()
     color = Color.query.filter_by(id = category.color.id).first()
     form = AddCategoryForm()
+
     if form.validate_on_submit():
         color.name = form.color.data
         color.save()
@@ -132,6 +140,8 @@ def edit_category(category_id):
         db.session.commit()
         flash('Category edited')
         return redirect(url_for('user_bp.dashboard'))
+
+    #Prepopulate form fields
     form.color.data = color.name
     color = color.name
     form.name.data = category.name
@@ -146,10 +156,12 @@ def delete_category(category_id):
     category = Category.query.filter_by(id = category_id, user_id = current_user.id).first()
     color = category.color
     quotes = category.quotes
+
     if quotes:
-        for i in quotes:
-            i.category = general_category
-            i.save()
+        for quote in quotes:
+            quote.category = general_category
+            quote.save()
+    
     db.session.delete(color)
     db.session.delete(category)
     db.session.commit()
