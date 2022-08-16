@@ -1,3 +1,8 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .shadow-btn:hover {
   box-shadow: 0.5px 0.5px 10px #A500A0;
 }
@@ -10,7 +15,7 @@
   background-image: url(../img/background.svg);
   background-repeat: no-repeat;
   background-position: top right;
-  height: 768px;
+  height: 640px;
 }
 
 
@@ -25,7 +30,11 @@
 }
 
 
-.white-btn, .white-btn:active, .white-btn:focus, .white-btn:not(:disabled):not(.disabled):active:focus, .white-btn:not(:disabled):not(.disabled):active:focus {
+.white-btn, 
+.white-btn:active, 
+.white-btn:focus, 
+.white-btn:not(:disabled):not(.disabled):active:focus, 
+.white-btn:not(:disabled):not(.disabled):active:focus {
   width: 210px;
   height: 50px;
   border-radius: 200px;

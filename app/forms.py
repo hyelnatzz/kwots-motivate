@@ -21,7 +21,9 @@ class AddCategoryForm(FlaskForm):
 class RegisterForm(FlaskForm):
     username = StringField('', validators=[InputRequired(message='username is required')])
     email = StringField('', validators=[InputRequired(message='email field cannot be empty')])
-    password = PasswordField('', validators=[InputRequired(message='password is required'), Length(min=8, message='password cannot be less than 8 characters long')])
+    password = PasswordField('', 
+                    validators=[InputRequired(message='password is required'), 
+                    Length(min=8, message='password cannot be less than 8 characters long')])
     confirm_password = PasswordField('', validators=[EqualTo('password', message='password does not match')])
     register = SubmitField('Register')
 
